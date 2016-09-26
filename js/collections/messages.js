@@ -1,9 +1,6 @@
 var Backchat = Backchat || {};
 
-var BackchatList = Backbone.Collection.extend({
+Backchat.Messages = Backbone.Collection.extend({
   model: Backchat.Message,
-
-  localStorage: new Backbone.LocalStorage('backchat-backbone')
+  url: '/messages'
 });
-
-Backchat.Messages = new BackchatList();

@@ -15,7 +15,7 @@ var buildMessage = function(params) {
 
 
 router.get('/messages', function(req, res, next) {
-  Message.find(req.params.id, function(err, messages) {
+  Message.find(function(err, messages) {
     if (err) { return next(err); }
     res.json(messages);
   });
@@ -34,7 +34,7 @@ router.get('/message/:id', function(req, res, next) {
   });
 });
 
-router.post('/message', function(req, res, next) {
+router.post('/messages', function(req, res, next) {
   var newMessage = buildMessage(req.body);
   newMessage.save(function(err) {
     if (err) { return next(err); }

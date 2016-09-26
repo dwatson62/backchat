@@ -8,11 +8,25 @@ Backchat.BackchatView = Backbone.View.extend({
   },
 
   initialize: function() {
+    var self = this;
+    this.collection = new Backchat.Messages();
+    this.collection.fetch({
+      success: function(collection) {
+        _.each(collection.models, function(message) {
+          self.addOne(message);
+        });
+      },
+      error: function() {
+        console.log('Something went wrong!');
+      }
+    });
+    this.render();
+
+
     this.$authorInput = this.$('#new-author');
     this.$contentInput = this.$('#new-content');
 
     this.listenTo(Backchat.Messages, 'add', this.addOne);
-    Backchat.Messages.fetch();
   },
 
   addOne: function(message) {
@@ -21,7 +35,7 @@ Backchat.BackchatView = Backbone.View.extend({
   },
 
   createNewMessage: function() {
-    Backchat.Messages.create(this.newAttributes());
+    this.collection.create(this.newAttributes());
     this.$authorInput.val('');
     this.$contentInput.val('');
   },
