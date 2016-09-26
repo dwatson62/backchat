@@ -4,6 +4,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose   = require('mongoose');
+
+var mongoUri = process.env.MONGOLAB_URI ||
+               process.env.MONGOHQ_URL ||
+               'mongodb://localhost/backchat_' + process.env.NODE_ENV;
+
+var Message = require('./models/message.js');
+
+mongoose.connect(mongoUri, function(err) {
+  if (err) {
+    console.log('Connection error:', err);
+  } else {
+    console.log('Connection to ' + process.env.NODE_ENV + ' database was successful!');
+  }
+});
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
