@@ -14,6 +14,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "backbone.localstorage": "^1.1.16",
     "jasmine": "^2.5.2",
     "jasmine-matchers": "^0.2.3"
   }

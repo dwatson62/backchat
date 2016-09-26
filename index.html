@@ -3,22 +3,33 @@
   <title>Backchat</title>
 </head>
 <body>
-  <section class='message-area'>
-    <div class='message'>
-      Hello world!
-    </div>
-  </section>
 
-  <section class='input-area'>
-    <label>
-      Author
-      <input type='text' class='author-input' />
-    </label>
+  <article id='backchat-app'>
+    <section id='messages-list'></section>
 
-    <label>
-      Message
-      <input type='text' class='message-input' />
-    </label>
-  </section>
+    <section class='input-area'>
+      <label>
+        Author
+        <input type='text' class='author-input' id='new-author' />
+      </label>
+
+      <label>
+        Message
+        <input type='text' class='content-input' id='new-content' />
+      </label>
+      <button id='submit'>Submit</button>
+    </section>
+  </article>
+
+  <script type="text/template" id='message-template'></script>
+  <script src='node_modules/underscore/underscore-min.js'></script>
+  <script src='node_modules/jquery/dist/jquery.min.js'></script>
+  <script src='node_modules/backbone/backbone-min.js'></script>
+  <script src='node_modules/backbone.localstorage/backbone.localStorage-min.js'></script>
+  <script src='js/backchat.js'></script>
+  <script src='js/models/message.js'></script>
+  <script src='js/collections/messages.js'></script>
+  <script src='js/views/backchat.js'></script>
+  <script src='js/views/message.js'></script>
 </body>
 </html>
