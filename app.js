@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 
-var mongoUri = process.env.MONGOLAB_URI ||
-               process.env.MONGOHQ_URL ||
+var mongoUri = process.env.MONGODB_URI ||
                'mongodb://localhost/backchat_' + process.env.NODE_ENV;
 
 var Message = require('./models/message.js');
