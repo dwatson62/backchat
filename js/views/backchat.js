@@ -10,6 +10,8 @@ Backchat.BackchatView = Backbone.View.extend({
   initialize: function() {
     var self = this;
     this.collection = new Backchat.Messages();
+    this.listenTo(this.collection, 'add', this.addOne);
+
     this.collection.fetch({
       success: function(collection) {
         _.each(collection.models, function(message) {
@@ -35,7 +37,6 @@ Backchat.BackchatView = Backbone.View.extend({
     var message = this.collection.create(this.newAttributes());
     this.$authorInput.val('');
     this.$contentInput.val('');
-    this.addOne(message);
   },
 
   newAttributes: function() {
