@@ -12,6 +12,12 @@ Backchat.BackchatView = Backbone.View.extend({
     this.collection = new Backchat.Messages();
     this.listenTo(this.collection, 'add', this.addOne);
 
+    var pusher = new Pusher('57dfc6cfaf53632a4da6', {
+      cluster: 'eu'
+    });
+    var channel = pusher.subscribe('message_channel');
+    Backchat.MessageBackpusher = new Backpusher(channel, this.collection);
+
     this.collection.fetch({
       success: function(collection) {
         _.each(collection.models, function(message) {
