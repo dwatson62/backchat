@@ -1,9 +1,22 @@
+require('dotenv').config();
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+var Pusher = require('pusher');
+
+var pusher = new Pusher({
+  appId: process.env.app_id,
+  key: process.env.key,
+  secret: process.env.secret
+});
+
+pusher.trigger('message_channel', 'new_message');
+
 var mongoose   = require('mongoose');
 
 var mongoUri = process.env.MONGODB_URI ||
