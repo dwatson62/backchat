@@ -13,7 +13,6 @@ To download:
 
 #### TODO:
 
-- Setup Pusher
 - Styling with Scss
 - Create Users
 
