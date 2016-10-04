@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build-css": "./bin/build-css",
+    "watch-css": "./bin/watch-css"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +29,8 @@
   },
   "devDependencies": {
     "jasmine": "^2.5.2",
-    "jasmine-matchers": "^0.2.3"
+    "jasmine-matchers": "^0.2.3",
+    "node-sass": "^3.10.1",
+    "nodemon": "^1.10.2"
   }
 }
