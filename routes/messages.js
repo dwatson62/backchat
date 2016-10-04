@@ -13,6 +13,14 @@ var buildMessage = function(params) {
   });
 };
 
+var Pusher = require('pusher');
+
+var pusher = new Pusher({
+  appId: process.env.app_id,
+  key: process.env.key,
+  secret: process.env.secret,
+  cluster: 'eu'
+});
 
 router.get('/messages', function(req, res, next) {
   Message.find(function(err, messages) {
@@ -39,6 +47,7 @@ router.post('/messages', function(req, res, next) {
   newMessage.save(function(err) {
     if (err) { return next(err); }
     console.log('New message by ' + newMessage.author + ' was created!');
+    pusher.trigger('message_channel', 'remote_create', newMessage);
     res.json(newMessage);
   });
 });
