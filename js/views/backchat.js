@@ -10,13 +10,26 @@ Backchat.BackchatView = Backbone.View.extend({
   initialize: function() {
     var self = this;
     this.collection = new Backchat.Messages();
-    this.listenTo(this.collection, 'add', this.addOne);
+
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
 
     var pusher = new Pusher('57dfc6cfaf53632a4da6', {
-      cluster: 'eu'
+      cluster: 'eu',
+      encrypted: true
     });
+
     var channel = pusher.subscribe('message_channel');
     Backchat.MessageBackpusher = new Backpusher(channel, this.collection);
+
+    channel.bind('remote_create', function(response) {
+      console.log(response)
+      var newMessage = new Backchat.Message(response);
+      self.addOne(newMessage);
+    });
 
     this.collection.fetch({
       success: function(collection) {
