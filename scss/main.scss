@@ -1,0 +1,75 @@
+$white: white;
+
+$medium-padding: 15px;
+$large-padding: 30px;
+
+$medium-margin: 15px;
+$large-margin: 30px;
+
+body {
+  background-color: #5cbe4a;
+}
+
+.messages-list {
+  height: 65%;
+  overflow: scroll;
+  padding: $large-padding;
+}
+
+.message {
+  background-color: $white;
+  border-radius: 30%;
+  list-style: none;
+  margin-top: $medium-margin;
+  padding: $large-padding;
+
+  .author {
+    font-size: 2em;
+    font-weight: 900;
+  }
+
+  .content {
+    font-size: 1.5em;
+    margin-left: $medium-margin;
+  }
+}
+
+.author-input {
+  font-size: 2em;
+}
+
+.content-input {
+  font-size: 4em;
+}
+
+.input-area {
+  border: black 1px solid;
+  border-radius: 10px;
+
+  .submit {
+    border-radius: 10px;
+    font-size: 2em;
+    margin-top: 20px;
+  }
+}
+
+.input-field {
+  border-radius: 11px;
+  padding: $medium-padding;
+}
+
+.medium-margin-top {
+  margin-top: $medium-margin;
+}
+
+.large-margin-top {
+  margin-top: $large-margin;
+}
+
+.medium-padding {
+  padding: $medium-padding;
+}
+
+.large-padding {
+  padding: $large-padding;
+}

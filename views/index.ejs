@@ -4,24 +4,38 @@
 </head>
 <body>
 
-  <article id='backchat-app'>
-    <section id='messages-list'></section>
+  <article id='backchat-app container'>
+    <div class='row'>
+      <section id='messages-list' class='col-md-4 col-md-offset-4 messages-list'></section>
+    </div>
 
-    <section class='input-area'>
-      <label>
-        Author
-        <input type='text' class='author-input' id='new-author' />
-      </label>
+    <section class='col-md-12 large-margin-top'>
+      <div class='col-md-4'></div>
 
-      <label>
-        Message
-        <input type='text' class='content-input' id='new-content' />
-      </label>
-      <button id='submit'>Submit</button>
+      <div class='col-md-5 input-area medium-padding'>
+        <div class='row'>
+          <div class='col-md-6'>
+            <input placeholder='Your name' type='text' class='author-input input-field' id='new-author' />
+          </div>
+          <div class='col-md-6'>
+            <button class='submit col-md-4 btn btn-primary' id='submit'>Submit</button>
+          </div>
+        </div>
+
+        <div class='row medium-margin-top'>
+          <div class='col-md-6'>
+            <input placeholder='Message' type='text' class='content-input input-field' id='new-content' />
+          </div>
+        </div>
+      </div>
+
     </section>
   </article>
 
-  <script type="text/template" id='message-template'></script>
+  <script type="text/template" id='message-template'>
+    <div class='author'></div>
+    <div class='content'></div>
+  </script>
   <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
   <script src='node_modules/underscore/underscore-min.js'></script>
   <script src='node_modules/jquery/dist/jquery.min.js'></script>

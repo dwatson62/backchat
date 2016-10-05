@@ -1,0 +1,50 @@
+body {
+  background-color: #5cbe4a; }
+
+.messages-list {
+  height: 65%;
+  overflow: scroll;
+  padding: 30px; }
+
+.message {
+  background-color: white;
+  border-radius: 30%;
+  list-style: none;
+  margin-top: 15px;
+  padding: 30px; }
+  .message .author {
+    font-size: 2em;
+    font-weight: 900; }
+  .message .content {
+    font-size: 1.5em;
+    margin-left: 15px; }
+
+.author-input {
+  font-size: 2em; }
+
+.content-input {
+  font-size: 4em; }
+
+.input-area {
+  border: black 1px solid;
+  border-radius: 10px; }
+  .input-area .submit {
+    border-radius: 10px;
+    font-size: 2em;
+    margin-top: 20px; }
+
+.input-field {
+  border-radius: 11px;
+  padding: 15px; }
+
+.medium-margin-top {
+  margin-top: 15px; }
+
+.large-margin-top {
+  margin-top: 30px; }
+
+.medium-padding {
+  padding: 15px; }
+
+.large-padding {
+  padding: 30px; }
