@@ -56,7 +56,6 @@ Backchat.BackchatView = Backbone.View.extend({
 
   createNewMessage: function() {
     var message = this.collection.create(this.newAttributes());
-    this.$authorInput.val('');
     this.$contentInput.val('');
   },
 
