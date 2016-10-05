@@ -36,6 +36,7 @@ Backchat.BackchatView = Backbone.View.extend({
         _.each(collection.models, function(message) {
           self.addOne(message);
         });
+        self.scrollToBottom();
       },
       error: function() {
         console.log('Something went wrong!');
@@ -50,6 +51,7 @@ Backchat.BackchatView = Backbone.View.extend({
   addOne: function(message) {
     var view = new Backchat.MessageView({ model: message });
     $('#messages-list').append(view.render().el);
+    this.scrollToBottom();
   },
 
   createNewMessage: function() {
@@ -63,5 +65,15 @@ Backchat.BackchatView = Backbone.View.extend({
       author: this.$authorInput.val().trim(),
       content: this.$contentInput.val().trim()
     };
+  },
+
+  scrollToBottom: function() {
+    var messageList = $('#messages-list')[0];
+    var isScrolledToBottom = messageList.scrollHeight -
+      messageList.clientHeight <= messageList.scrollTop + 1;
+
+    if (!isScrolledToBottom) {
+      messageList.scrollTop = messageList.scrollHeight - messageList.clientHeight;
+    }
   }
 });
