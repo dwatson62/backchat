@@ -46,12 +46,17 @@ Backchat.BackchatView = Backbone.View.extend({
 
     this.$authorInput = this.$('#new-author');
     this.$contentInput = this.$('#new-content');
+    this.count = 0;
   },
 
   addOne: function(message) {
     var view = new Backchat.MessageView({ model: message });
     $('#messages-list').append(view.render().el);
     this.scrollToBottom();
+    if (document.hidden) {
+      this.count += 1;
+      document.title = '(' + this.count + ') Backchat';
+    }
   },
 
   createNewMessage: function() {
@@ -74,5 +79,10 @@ Backchat.BackchatView = Backbone.View.extend({
     if (!isScrolledToBottom) {
       messageList.scrollTop = messageList.scrollHeight - messageList.clientHeight;
     }
+  },
+
+  clearNewMessageCount: function() {
+    this.count = 0;
+    document.title = 'Backchat';
   }
 });

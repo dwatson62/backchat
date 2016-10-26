@@ -2,7 +2,7 @@ var Backchat = Backchat || {};
 var ENTER_KEY = 13;
 
 $(document).ready(function() {
-  new Backchat.BackchatView();
+  backchatView = new Backchat.BackchatView();
 
   var params = window.location.search.substring(1).split('=');
   if (params[0] === 'author') {
@@ -10,4 +10,8 @@ $(document).ready(function() {
     author = author.charAt(0).toUpperCase() + author.slice(1);
     $('#new-author').val(author);
   }
+
+  window.addEventListener('focus', function() {
+    backchatView.clearNewMessageCount();
+  });
 });
