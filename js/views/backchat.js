@@ -9,6 +9,7 @@ Backchat.BackchatView = Backbone.View.extend({
 
   initialize: function() {
     var self = this;
+    var pusherKey = $('#backchat-app').data('key');
     this.collection = new Backchat.Messages();
 
     Pusher.log = function(message) {
@@ -17,7 +18,7 @@ Backchat.BackchatView = Backbone.View.extend({
       }
     };
 
-    var pusher = new Pusher('57dfc6cfaf53632a4da6', {
+    var pusher = new Pusher(pusherKey, {
       cluster: 'eu',
       encrypted: true
     });
