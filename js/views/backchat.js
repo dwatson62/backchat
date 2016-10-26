@@ -4,7 +4,8 @@ Backchat.BackchatView = Backbone.View.extend({
   el: '#backchat-app',
 
   events: {
-    'click #submit': 'createNewMessage'
+    'click #submit': 'createNewMessage',
+    'keyup #new-content' : 'keyPressEventHandler'
   },
 
   initialize: function() {
@@ -85,5 +86,11 @@ Backchat.BackchatView = Backbone.View.extend({
   clearNewMessageCount: function() {
     this.count = 0;
     document.title = 'Backchat';
+  },
+
+  keyPressEventHandler: function() {
+    if (event.keyCode == 13) {
+      this.createNewMessage();
+    }
   }
 });

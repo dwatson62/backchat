@@ -40,8 +40,8 @@ body {
 .input-field {
   border: 1px solid black; }
 
-.messages-section {
-  height: 50em; }
+.phone-section {
+  height: 90vh; }
 
 .messages-list {
   height: 60%;
