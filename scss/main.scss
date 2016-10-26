@@ -1,61 +1,135 @@
 $white: white;
+$black: black;
+$grey: gray;
+$dark-grey: #000000;
+$green: #5cbe4a;
+$metallic-green: #319177;
 
+$small-padding: 10px;
 $medium-padding: 15px;
 $large-padding: 30px;
 
+$small-margin: 10px;
 $medium-margin: 15px;
 $large-margin: 30px;
 
+$medium-border-radius: 12px;
+$large-border-radius: 30px;
+
 body {
-  background-color: #5cbe4a;
+  background: url('https://s-media-cache-ak0.pinimg.com/originals/f2/50/62/f25062b96c7c06f256ad232a84916550.jpg') center no-repeat;
+}
+
+%faint-dark-box-shadow {
+  box-shadow: inset 0px 0px 3px 1px $dark-grey;
+  -moz-box-shadow: inset 0px 0px 3px 1px $dark-grey;
+  -webkit-box-shadow: inset 0px 0px 3px 1px $dark-grey;
+}
+
+%faint-grey-box-shadow {
+  box-shadow: inset 0px 0px 2px 1px $grey;
+  -moz-box-shadow: inset 0px 0px 2px 1px $grey;
+  -webkit-box-shadow: inset 0px 0px 2px 1px $grey;
+}
+
+%metallic-green-gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5cbe4a+11,319177+48,5cbe4a+98 */
+  background: $green; /* Old browsers */
+  background: -moz-linear-gradient(top,  $green 11%, $metallic-green 48%, $green 98%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  $green 11%,$metallic-green 48%,$green 98%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  $green 11%,$metallic-green 48%,$green 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5cbe4a', endColorstr='#5cbe4a',GradientType=0 ); /* IE6-9 */
+}
+
+%metallic-white-gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f8f9+0,e5ebee+50,d7dee3+79,f5f7f9+100 */
+  background: #f6f8f9; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 50%, #d7dee3 79%, #f5f7f9 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 79%,#f5f7f9 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 79%,#f5f7f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
+}
+
+%small-black-border {
+  border: 1px solid $black;
+}
+
+.messages-section {
+  height: 50em;
 }
 
 .messages-list {
-  height: 65%;
+  height: 60%;
   overflow: scroll;
   padding: $large-padding;
 }
 
+.outer-phone {
+  background-color: $black;
+  border-radius: $large-border-radius;
+
+  .phone-marginals {
+    height: 75px;
+
+    .home-button {
+      @extend %faint-grey-box-shadow;
+      border-radius: 50%;
+      height: 55px;
+      margin-top: $small-margin;
+      width: 55px;
+
+      .home-square {
+        color: $grey;
+        font-size: 4em;
+        line-height: 39px;
+        text-align: center;
+      }
+    }
+  }
+
+  .inner-phone {
+    @extend %faint-dark-box-shadow;
+    @extend %metallic-green-gradient;
+    margin-left: $large-margin;
+    margin-right: $large-margin;
+  }
+}
+
 .message {
-  background-color: $white;
-  border-radius: 30%;
+  @extend %metallic-white-gradient;
+  @extend %faint-grey-box-shadow;
+  border-radius: $medium-border-radius;
   list-style: none;
   margin-top: $medium-margin;
-  padding: $large-padding;
+  padding: $medium-padding;
 
   .author {
-    font-size: 2em;
+    font-size: 1.4em;
     font-weight: 900;
   }
 
   .content {
-    font-size: 1.5em;
-    margin-left: $medium-margin;
+    margin-top: $small-margin;
   }
-}
-
-.author-input {
-  font-size: 2em;
-}
-
-.content-input {
-  font-size: 4em;
 }
 
 .input-area {
-  border: black 1px solid;
-  border-radius: 10px;
-
-  .submit {
-    border-radius: 10px;
-    font-size: 2em;
-    margin-top: 20px;
-  }
+  @extend %faint-dark-box-shadow;
 }
 
 .input-field {
-  border-radius: 11px;
-  padding: $medium-padding;
+  @extend %small-black-border;
+  border-radius: $medium-border-radius;
+  padding: $small-padding;
+  width: 100%;
+}
+
+.content-input {
+  resize: none;
+}
+
+.small-margin-top {
+  margin-top: $small-margin;
 }
 
 .medium-margin-top {
@@ -64,6 +138,14 @@ body {
 
 .large-margin-top {
   margin-top: $large-margin;
+}
+
+.large-margin-bottom {
+  margin-bottom: $large-margin;
+}
+
+.no-padding-left {
+  padding-left: 0;
 }
 
 .medium-padding {
