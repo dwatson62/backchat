@@ -52,4 +52,27 @@ router.post('/messages', function(req, res, next) {
   });
 });
 
+router.delete('/message/:id', function(req, res, next) {
+  Message.findByIdAndRemove(req.params.id, function(err, message) {
+    if (err) {
+      next(err);
+    } else if (message) {
+      res.json({ message: message.id + ' deleted!' });
+    } else {
+      console.log('Message not found!');
+      next();
+    }
+  });
+});
+
+router.delete('/messages', function(req, res, next) {
+  Message.remove({}, function(err) {
+    if (err) {
+      res.end('Error! ' + err);
+    } else {
+      res.end('Success!');
+    }
+  });
+});
+
 module.exports = router;
