@@ -13,7 +13,6 @@ To download:
 
 #### TODO:
 
-- Styling with Scss
 - Create Users
 
 #### Tech Stack:
@@ -21,3 +20,4 @@ To download:
 - Backbone JS
 - Express
 - MongoDB with Mongoose
+- Scss and Bootstrap
