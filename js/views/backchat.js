@@ -28,7 +28,7 @@ Backchat.BackchatView = Backbone.View.extend({
     Backchat.MessageBackpusher = new Backpusher(channel, this.collection);
 
     channel.bind('remote_create', function(response) {
-      console.log(response)
+      console.log(response);
       var newMessage = new Backchat.Message(response);
       self.addOne(newMessage);
     });

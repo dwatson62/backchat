@@ -54,6 +54,11 @@ body {
   border: 1px solid $black;
 }
 
+.typing-icon {
+  background: url("/images/typing.svg") no-repeat center;
+  height: 40px;
+}
+
 .phone-section {
   height: 90vh;
 }
